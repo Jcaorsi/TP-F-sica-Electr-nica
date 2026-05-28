@@ -1,0 +1,1 @@
+.model LND150h VDMOS (Rg=100 Vto=-1.4 Lambda=0m Rs=70 Kp=3m Ksubthres=95m Mtriode=0.6 Rd=300 Bex=-2 Vtotc=-5m Tksubthres1=3m Trs1=2.6m Trd1=3m Cgdmax=5p Cgdmin=3p a=0.3 Cgs=3p Cjo=15p m=0.7 VJ=0.75 IS=15p N=1.5 EG=1.1 Rb=100 Vds=400 Ron=600 mfg=IHKT1911)
