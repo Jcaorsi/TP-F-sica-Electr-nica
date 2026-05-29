@@ -1,0 +1,28 @@
+LTspice 24.1.9 for Windows
+Circuit: C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\TP_FE mos2N7000.net
+Start Time: Thu May 28 20:55:39 2026
+Options: plotwinsize=0
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = trap
+WARNING: Node nc_04 is floating.
+WARNING: Node nc_05 is floating.
+WARNING: Node nc_08 is floating.
+
+.step 
+Total elapsed time: 0.304 seconds.
+
+Files loaded:
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\TP_FE mos2N7000.net
+C:\Users\caorsi\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\Users\caorsi\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\Users\caorsi\AppData\Local\LTspice\lib\cmp\standard.jft
+C:\Users\caorsi\AppData\Local\LTspice\lib\cmp\standard.mos
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\1N4001.lib
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\2N3819.lib
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\2N7000.lib
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\BC546B.lib
+C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\LND150h.lib
+
