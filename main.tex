@@ -1,18 +1,18 @@
 \documentclass[conference]{IEEEtran} \IEEEoverridecommandlockouts 
 \usepackage{cite} \usepackage{amsmath,amssymb,amsfonts} \usepackage{algorithmic} \usepackage{graphicx} \usepackage{textcomp} \usepackage{xcolor}
- \begin{document} \title{Análisis de Componentes Modelados en LTSpice\\ {\footnotesize \textsuperscript{*}Trabajo Práctico de Laboratorio}}
+ \begin{document} \title{Análisis de Componentes Modelados en LTSpice}
   \author{ \IEEEauthorblockN{Juan Ignacio Caorsi (65532) y Rita Moschini (67026)} \IEEEauthorblockA{Grupo 3} } \maketitle \begin{abstract} 
     En este trabajo se realiza una comparación de los modelos teóricos de componentes mediante simulaciones con LTSpice, analizando el impacto de parámetros no ideales como el coeficiente de emisión en el punto de operación y la caracterización de pequeña señal.
  \end{abstract} \begin{IEEEkeywords} diodo, recta de carga, resistencia estática, resistencia dinámica, factor de idealidad. 
-\end{IEEEkeywords} \section{Introducción} El uso de simuladores permite aproximar el comportamiento de componentes reales mediante modelos parametrizados. En este informe se analiza la respuesta de un diodo bajo polarización directa.
- \section{Análisis de Diodo} Se planteó un circuito con un diodo en serie con una fuente $V_{CC} = 3,5$ V y una resistencia $R = 10,15$ k$\Omega$. El comportamiento del circuito externo está regido por la recta de carga, derivada de la ley de tensiones de Kirchhoff:
-  \begin{equation} I_D = \frac{V_{CC} - V_D}{R} \end{equation} El punto de operación obtenido ($Q$) de la simulación se sitúa en $V_{d}=510,42$ mV e $I_{d}=294,54~\mu$A.
-   \begin{figure}[htbp] \centering \includegraphics[width=0.45\textwidth]{graficos.pdf} \caption{Curva característica I-V con el punto de operación $Q$ y recta de carga.} \label{fig:curva_diodo} \end{figure} 
+\end{IEEEkeywords} 
+ \section{Análisis de Diodo} Se planteó un circuito con un diodo en serie con una fuente $V_{CC} = 3,5$ V y una resistencia $R = 10,15$ k$\Omega$. El comportamiento del circuito externo está regido por la recta de carga visible en la Figura \ref{fig:curva_diodo}, derivada de la ley de tensiones de Kirchhoff:
+  $ I_D = \frac{V_{CC} - V_D}{R}$. El punto de operación obtenido ($Q$) de la simulación se sitúa en $V_{d}=510,42$ mV e $I_{d}=294,54~\mu$A y se considera que $V_T \approx 25,85$ mV.
+   \begin{figure}[htbp] \centering \includegraphics[width=0.5\textwidth]{graficos.pdf} \caption{Curva característica I-V con el punto de operación $Q$ y recta de carga.} \label{fig:curva_diodo} \end{figure} 
    
-   \subsection{Obtención de los Parámetros del Modelo} A partir del modelo de simulación provisto para el diodo 1N4001, se identificó un coeficiente de emisión $N = 1,984$ y una corriente de saturación $I_s = 14,11$~nA. Según Sedra y Smith \cite{b2}, la presencia de 
+   A partir del modelo de simulación provisto para el diodo 1N4001, se identificó un coeficiente de emisión $N = 1,984$ y una corriente de saturación $I_s = 14,11$~nA. Según Sedra y Smith \cite{b2}, la presencia de 
    un factor de idealidad cercano a 2 es característica de la "región de baja corriente" ($I_D < 1$ mA), donde predominan los procesos de recombinación
     en la zona de vaciamiento. Dado que el punto $Q$ opera en el orden de los microamperios, este valor de $N$ es fundamental para el ajuste del 
-    modelo. \subsection{Resistencia Estática y Dinámica} Para caracterizar el componente en el punto $Q$, se calcularon las resistencias estática
+    modelo. \subsection{Parámetros del Modelo (pequeña señal)} Para caracterizar el componente en el punto $Q$, se calcularon las resistencias estática
      ($r_e$) y dinámica ($r_d$). La resistencia estática representa la oposición total al flujo de corriente continua:
       \begin{equation} r_e = \frac{V_D}{I_D} = \frac{510,42 \text{ mV}}{294,54 \text{ }\mu\text{A}} \approx 1,73 \text{ k}\Omega \end{equation} 
       Para el análisis de pequeña señal, se utiliza la resistencia dinámica ($r_d$), que representa la pendiente local de la curva. Utilizando 
@@ -30,10 +30,7 @@
 Para el análisis del Grupo 3, se configuró un circuito de polarización fija con una resistencia de carga $R_D = 5$ k$\Omega$ y una tensión de alimentación $V_{DD} = 10$ V. La tensión de control aplicada entre puerta y fuente se estableció en $V_{GS} = 1,673$ V.
 
 \subsection{Punto de Operación Q y Región de Trabajo}
-A partir de la curva de transferencia obtenida mediante la simulación (ver Fig. \ref{fig:mosfet_graficos}), se identificó que el modelo del transistor 2N7000 posee una tensión de umbral $V_{th} = 2,12$ V. Al contrastar este parámetro con la tensión de polarización, se verifica que:
-\begin{equation}
-    V_{GS} (1,673 \text{ V}) < V_{th} (2,12 \text{ V})
-\end{equation}
+A partir de la curva de entrada obtenida mediante la simulación (ver Fig. \ref{fig:mosfet_graficos}), se identificó que el modelo del transistor 2N7000 posee una tensión de umbral $V_{th} = 2,12$ V. Al contrastar este parámetro con la tensión de polarización, se verifica que:  $ V_{GS} (1,673 \text{ V}) < V_{th} (2,12 \text{ V})$.
 
 Dado que la tensión de puerta es insuficiente para inducir la formación del canal de inversión, el dispositivo opera en la \textbf{región de corte}. El punto de operación $Q$ resultante se caracteriza por:
 \begin{itemize}
@@ -61,27 +58,32 @@ En la región de corte, la pendiente de la curva de salida es nula, lo que impli
 
 
 \section{MOSFET de Vaciamiento (LND150h)}
-Para el Grupo 3, se analizó el MOSFET de vaciamiento LND150h con una resistencia de carga $R_D = 8,5$ k$\Omega$ y $V_{DD} = 10$ V. La tensión de polarización se fijó en $V_{GS} = 0,3$ V.
+Se analizó el MOSFET de vaciamiento LND150h con una resistencia de carga $R_D = 8,5$ k$\Omega$ y $V_{DD} = 10$ V. La tensión de polarización se fijó en $V_{GS} = 0,3$ V.
+
+
+
 
 \subsection{Punto de Operación Q y Región de Trabajo}
-A partir del modelo SPICE proporcionado, se identifica una tensión de umbral (pinch-off) $V_{to} = -1,4$ V y un parámetro de transconductancia $K_p = 3$ mA/V$^2$. Dado que $V_{GS} > V_{to}$ ($0,3 \text{ V} > -1,4 \text{ V}$), el dispositivo se encuentra en conducción.
+A partir del modelo SPICE proporcionado, se identifica una tensión de umbral $V_{to} = -1,4$ V y un parámetro $K_p = 3$ mA/V$^2$. Dado que $V_{GS} > V_{to}$ ($0,3 \text{ V} > -1,4 \text{ V}$), el dispositivo se encuentra en conducción.
 
-Utilizando la ecuación de saturación para MOSFET de vaciamiento:
+Utilizando la ecuación cuadrática ideal de saturación:
 \begin{equation}
-    I_D = \frac{K_p}{2} (V_{GS} - V_{to})^2 = \frac{3 \text{ mA/V}^2}{2} (0,3\text{V} - (-1,4\text{V}))^2 \approx 4,33 \text{ mA}
+    I_D = \frac{K_p}{2} (V_{GS} - V_{to})^2 = \frac{3 \text{ mA/V}^2}{2} (0,3\text{V} - (-1,4\text{V}))^2 
 \end{equation}
 
-Sin embargo, al considerar la recta de carga:
+Obteniendo finalmente $\approx 4,33 \text{ mA}$. Sin embargo, al considerar la recta de carga:
 \begin{equation}
     V_{DS} = V_{DD} - I_D \cdot R_D = 10\text{V} - (I_D \cdot 8,5\text{k}\Omega)
 \end{equation}
 
-Si la corriente fuera de $4,33$ mA, $V_{DS}$ sería negativo, lo cual es imposible. Esto indica que el dispositivo no puede estar en saturación y se encuentra en la \textbf{región óhmica o de triodo}. Realizando la simulación para el ajuste fino del punto $Q$ (ver Fig. \ref{fig:mosfet_dep_graficos}), se obtuvo:
+ Si la corriente fuera de $4,33$ mA, $V_{DS}$ sería negativo, lo cual es físicamente imposible. Esta discrepancia demuestra que el elevado valor de la resistencia externa $R_D$ absorbe la mayor parte del tensión de la fuente, limitando la corriente máxima y forzando al dispositivo a operar en la \textbf{región óhmica o de triodo}. Por su parte, las resistencias parásitas e imperfecciones internas del modelo \texttt{VDMOS} en SPICE terminan de realizar el ajuste fino sobre el valor exacto de dicha corriente. Realizando la simulación (ver Fig. \ref{fig:mosfet_dep_graficos}), se obtuvo
 \begin{itemize}
     \item $I_{D,Q} \approx 1,12$ mA
     \item $V_{DS,Q} \approx 0,48$ V
 \end{itemize}
-\textbf{Región de polarización:} Al cumplirse $V_{DS} < V_{GS} - V_{to}$ ($0,48 \text{ V} < 1,7 \text{ V}$), se confirma que el transistor opera en \textbf{región triodo}.
+
+
+
 
 \subsection{Parámetros de Pequeña Señal}
 En la región de triodo, los parámetros se definen por la pendiente de la curva en una zona de baja resistencia:
@@ -93,19 +95,18 @@ En la región de triodo, los parámetros se definen por la pendiente de la curva
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.45\textwidth]{graficos_lnd150.pdf}
-    \caption{Curvas para el LND150h: Transferencia (arriba) y Salida (abajo). El punto Q se ubica en la región de triodo debido al alto valor de $R_D$.}
+    \caption{Curvas para el LND150h: entrada (arriba) y Salida (abajo). El punto Q se ubica en la región de triodo debido al alto valor de $R_D$.}
     \label{fig:mosfet_dep_graficos}
 \end{figure}
 
 
 
 
-\subsection{Análisis Comparativo (Inciso C)}
+\subsection{Análisis Comparativo}
 Este resultado resulta llamativo al compararlo con el modelo de vaciamiento. Mientras que el LND150 conduce con $V_{GS}=0$V, el 2N7000 requiere una excitación significativamente mayor para salir del estado de reposo. En la hoja de datos, el rango de $V_{th}$ puede ser tan bajo como $0,8$ V; si se utilizara un componente físico con ese valor mínimo, el transistor estaría en conducción, lo que demuestra la alta sensibilidad del diseño al componente específico seleccionado.
 
         \section{Conclusiones} La inclusión del c
         oeficiente de emisión en el cálculo de la resistencia dinámica permite un ajuste preciso con los resultados de simulación. Se verificó 
         que el modelo de diodo ideal subestima significativamente la $r_d$ en regímenes de baja corriente, lo que afectaría la ganancia en un 
-        diseño de amplificación real. \begin{thebibliography}{00} \bibitem{b1} M. Young, The Technical Writer's Handbook. Mill Valley, CA: 
-            University Science, 1989. \bibitem{b2} A. S. Sedra y K. C. Smith, \textit{Microelectronic Circuits}, 7ma ed. Oxford University 
+        diseño de amplificación real. \begin{thebibliography}{00} \bibitem{b2} A. S. Sedra y K. C. Smith, \textit{Microelectronic Circuits}, 7ma ed. Oxford University 
             Press, 2015, Cap. 4. \end{thebibliography} \end{document}

@@ -26,7 +26,7 @@
     % Graficado paramétricamente usando la ecuación exacta de malla y triodo.
     \addplot[blue, ultra thick, variable=\t, domain=1.0837:1.17, samples=50] 
         ({(\t / (3*(10 - 8.5*\t))) + ((10 - 8.5*\t)/2) - 1.4}, {\t});
-    \addlegendentry{Curva Exacta SPICE}
+    \addlegendentry{Curva simulada}
 
     % PUNTO Q EXACTO
     \addplot[black, mark=*, mark size=3pt] coordinates {(0.3, 1.15)};

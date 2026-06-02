@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
 Circuit: C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\TP_FE mos2N7000.net
-Start Time: Thu May 28 20:55:39 2026
+Start Time: Tue Jun  2 15:38:50 2026
 Options: plotwinsize=0
 solver = Normal
 Maximum thread count: 8
@@ -11,8 +11,21 @@ WARNING: Node nc_04 is floating.
 WARNING: Node nc_05 is floating.
 WARNING: Node nc_08 is floating.
 
-.step 
-Total elapsed time: 0.304 seconds.
+.OP point found by inspection.
+.step V2=0 
+.step V2=1 
+.step V2=2 
+.step V2=3 
+.step V2=4 
+.step V2=5 
+.step V2=6 
+.step V2=7 
+.step V2=8 
+.step V2=9 
+.step V2=10 
+.step V2=11 
+.step V2=12 
+Total elapsed time: 0.160 seconds.
 
 Files loaded:
 C:\Users\caorsi\source\repos\Jcaorsi\TP-F-sica-Electr-nica\TP_FE mos2N7000.net
