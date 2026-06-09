@@ -4,7 +4,8 @@
   \author{ \IEEEauthorblockN{Juan Ignacio Caorsi (65532) y Rita Moschini (67026)} \IEEEauthorblockA{Grupo 3} } \maketitle \begin{abstract} 
     En este trabajo se realiza una comparación de los modelos teóricos de componentes mediante simulaciones con LTSpice, analizando el impacto de parámetros no ideales como el coeficiente de emisión en el punto de operación y la caracterización de pequeña señal.
  \end{abstract} \begin{IEEEkeywords} diodo, recta de carga, resistencia estática, resistencia dinámica, factor de idealidad. 
-\end{IEEEkeywords} 
+\end{IEEEkeywords}
+
  \section{Análisis de Diodo} Se planteó un circuito con un diodo en serie con una fuente $V_{CC} = 3,5$ V y una resistencia $R = 10,15$ k$\Omega$. El comportamiento del circuito externo está regido por la recta de carga visible en la Figura \ref{fig:curva_diodo}, derivada de la ley de tensiones de Kirchhoff:
   $ I_D = \frac{V_{CC} - V_D}{R}$. El punto de operación obtenido ($Q$) de la simulación se sitúa en $V_{d}=510,42$ mV e $I_{d}=294,54~\mu$A y se considera que $V_T \approx 25,85$ mV.
    \begin{figure}[htbp] \centering \includegraphics[width=0.5\textwidth]{graficos.pdf} \caption{Curva característica I-V con el punto de operación $Q$ y recta de carga.} \label{fig:curva_diodo} \end{figure} 
@@ -21,7 +22,13 @@
         no lineal del dispositivo; mientras el diodo presenta una resistencia considerable para establecer el punto de polarización, se comporta 
         como un elemento de baja oposición para variaciones de señal pequeñas en torno a dicho punto. 
     
+\section{Análisis del dispositivo JFET (2N3819)}
 
+
+
+
+
+\section{Análisis del dispositivo BJT (BC546B )}
 
 
 
