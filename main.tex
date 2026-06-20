@@ -6,6 +6,8 @@
  \end{abstract} \begin{IEEEkeywords} diodo, recta de carga, resistencia estática, resistencia dinámica, factor de idealidad. 
 \end{IEEEkeywords}
 
+\raggedbottom
+
  \section{Análisis de Diodo} Se planteó un circuito con un diodo en serie con una fuente $V_{CC} = 3,5$ V y una resistencia $R = 10,15$ k$\Omega$. El comportamiento del circuito externo está regido por la recta de carga visible en la Figura \ref{fig:curva_diodo}, derivada de la ley de tensiones de Kirchhoff:
   $ I_D = \frac{V_{CC} - V_D}{R}$. El punto de operación obtenido ($Q$) de la simulación se sitúa en $V_{d}=510,42$ mV e $I_{d}=294,54~\mu$A y se considera que $V_T \approx 25,85$ mV.
    \begin{figure}[htbp] \centering \includegraphics[width=0.5\textwidth]{graficos.pdf} \caption{Curva característica I-V con el punto de operación $Q$ y recta de carga.} \label{fig:curva_diodo} \end{figure} 
@@ -23,7 +25,7 @@
         como un elemento de baja oposición para variaciones de señal pequeñas en torno a dicho punto. 
     
 \section{Análisis del dispositivo JFET (2N3819)}
-Estudiaremos un dispositivo JFET con fuentes de tensión $V_{GS} = -1 V$ y $V_{DD}= 20 V$, y una carga de R = 1.8 k $ \Omega$.
+Se estudiará un dispositivo JFET con fuentes de tensión $V_{GS} = -1 V$ y $V_{DD}= 20 V$, y una carga de R = 1.8 k$ \Omega$.
     
     \subsection{Punto de Operación Q y Región de Trabajo}
     
@@ -34,54 +36,60 @@ Estudiaremos un dispositivo JFET con fuentes de tensión $V_{GS} = -1 V$ y $V_{D
         \caption{Curva de Entrada del dispositivo JFET.} 
         \label{fig:curvaEntradaJFET}
     \end{figure}
-    En la curva de entrada se puede observar 3 "zonas", la primera siendo la zona de corte, que es donde $V_{GS}<V_P$ y $I_D=0\,A$. En este caso, $V_P=-3\,V$ acorde a la simulación de la figura \ref{fig:curvaEntradaJFET} y al modelo del transistor en LTSpice. En la región entre -3 V y -0,25 V la curva presenta un comportamiento aproximadamente cuadrático. Finalmente la zona cercana a $V_{GS}=0\,V$ en la que la corriente $I_D$ se acerca a su valor de saturación $I_{DSS}=10\,mA$.
+    En la curva de entrada se puede observar 3 "zonas", la primera siendo la zona de corte, que es donde $V_{GS}<V_P$ y $I_D=0\,A$. En este caso, el modelo del componente determina que $V_P=-3\,V$ como se observa en la simulación de la figura \ref{fig:curvaEntradaJFET}. En la región entre -3 V y -0,25 V la curva presenta un comportamiento aproximadamente cuadrático. Finalmente se observa la zona cercana a $V_{GS}=0\,V$, en la que la corriente $I_D$ se acerca a su valor de saturación $I_{DSS}=10\,mA$ con una pendiente menor a la de la región cuadrática, alejándose del comportamiento ideal. Una de las posibles explicaciones por la cual esto puede ocurrir físicamente son que al ser $V_{GS}$ cercano a 0, el canal está casi completamente abierto, haciendo que el campo eléctrico a lo largo del mismo tenga una magnitud tal que los portadores comienzan a colisionar entre sí, haciendo que la corriente de drift deje de crecer linealmente y la velocidad de los portadores tienda a una velocidad de saturación. Otra de las posibles explicaciones para este fenómeno es que al acercarse la corriente a su valor máximo, las caídas de tensión en las resistencias en serie que aparecen por las junturas óhmicas con los contactos metálicos se vuelvan apreciables, haciendo que la corriente disminuya y en su totalidad crezca con una menor pendiente.
+    
     \begin{figure}[H]
         \centering 
-        \includegraphics[width=0.4\textwidth]{curvaSalidaJFET.png} 
+        \includegraphics[width=0.35\textwidth]{curvaSalidaJFET.png} 
         \caption{Curva de Salida del dispositivo JFET.} 
         \label{fig:curvaSalidaJFET}
     \end{figure}
-    En superposición con la curva de salida del JFET se puede apreciar la recta de carga determinada por $I_D=\frac{V_{DD}-V_{DS}}{R}$. La intersección entre la curva de carga y la curva de salida se encuentra en la región de saturación, de modo que el transistor está polarizado en saturación. Por esto, sabemos que $V_{DS}>V_{DSat}=V_{GS}-V_P=2\,V$.
+    En superposición con la curva de salida del JFET de la figura \ref{fig:curvaSalidaJFET} se puede apreciar la recta de carga determinada por $I_D=\frac{V_{DD}-V_{DS}}{R}$. La intersección entre la curva de carga y la curva de salida se encuentra en la región de saturación, de modo que el transistor está polarizado en saturación. Esto se condice con que, acorde a la figura \ref{fig:curvaSalidaJFET}, $V_{DS}\approx10\,V$, y está estudiado que en saturación se cumple: $V_{DS}>V_{DSat}=V_{GS}-V_P=2\,V$. La única diferencia apreciable entre la curva observable y la ideal se debe a un evidente efecto Early.
 
     
     \subsection{Parámetros del Modelo de Pequeña Señal}
-    Se obtuvo un valor para la transconductancia de $g_m=4,44\,mA$. Luego, para calcular la conductancia de salida se calculó la tensión de early $V_A$ a partir del valor de $\lambda=2.25m$ de la simulación, de manera que $V_A=\frac{1}{\lambda}=444,44\,V$. Así, $r_0=\frac{V_A}{I_D}=83.86k\,\Omega$ y $g_d=\frac{I_D}{V_A}=11.92\,\mu\frac{1}{\Omega}$.
-
+    Se obtuvo un valor de transconductancia de $g_m=4,44\,mA$. Luego, para calcular la conductancia de salida se calculó la tensión de early $V_A$ a partir del valor de $\lambda=2.25m$ de la simulación, de manera que $V_A=\frac{1}{\lambda}=444,44\,V$. Esto es coherente con lo observable en la curva de salida, puesto que una gran tensión de early implica una pequeña pendiente en la zona de saturación de la misma. Así, la resistencia de salida resulta ser $r_0=\frac{V_A}{I_D}=83.86k\,\Omega$ y la conductancia de salida $g_d=\frac{I_D}{V_A}=11.92\,\mu\frac{1}{\Omega}$.
 
 \section{Análisis del dispositivo BJT (BC546B )}
-    Estudiaremos un dispositivo BJT con fuentes de tensión $V_{BE} = 620\,mV$ y $V_{DD}= 10 V$ y una carga de R = 10 k $ \Omega$.
+    Se estudiará un dispositivo BJT con fuentes de tensión $V_{BE} = 620\,mV$ y $V_{DD}= 10 V$ y una carga de R = 10 k$ \Omega$.
 
-    El punto de operación Q en la curva de entrada del BJT (figura \ref{fig:curvaEntradaBJT}) se encuentra determinado por la fuente de tensión $V_{GS}=620\,mV$ colocada. La simulación mostró que en este punto, $I_D=523.6\,\mu A$. Dada esta carga, el transistor se encuentra polarizado en modo activo directo. También puedo notar esto porque en mi punto de carga,
-    $V_{CE}=V_{DD}-I_C\dot R =10\,V-(523.6\,\mu A)(10\,k\Omega)=4.8\,V $ \\ $V_{BC}=V_{BE}-V_{CE}=620\,mV-4.8V=-4.18\,V<0$.
-    Así, dado que $V_{BC}<0$ y $V_{BE}>0$, se obtiene analíticamente que el transistor opera en Modo Activo Directo.
+    El punto de operación Q en la curva de entrada del BJT (figura \ref{fig:curvaEntradaBJT}) se encuentra determinado por la fuente de tensión $V_{GS}=620\,mV$ colocada. La simulación mostró que en este punto, $I_D=523.6\,\mu A$. 
+    
+    Con el fin de determinar de forma analítica la polarización del dispositivo, se busca conocer los valores de las tensiones en las junturas, es decir $V_{BE}$ y $V_{BC}$. Así, se obtiene $V_{CE}=V_{DD}-I_C\cdot R =10\,V-(523.6\,\mu A)(10\,k\Omega)=4.8\,V $, es decir que $V_{CE}=4.8\,V $. Luego, se utiliza este dato para calcular $V_{BC}=V_{BE}-V_{CE}=620\,mV-4.8V$, de lo cual se obtiene que $V_{BC}=-4.18\,V$.
+    Así, dado que $V_{BC}<0$ y $V_{BE}>0$, se obtuvo analíticamente que el transistor opera en Modo Activo Directo.
     \begin{figure}[H]
         \centering 
         \includegraphics[width=0.4\textwidth]{curvaEntradaBJT.png} 
         \caption{Curva de Entrada del dispositivo BJT.} 
         \label{fig:curvaEntradaBJT}
     \end{figure}
-    Por otro lado, en superposición con la curva de salida del BJT se puede apreciar la recta de carga determinada por $I_D=\frac{V_{DD}-V_{CE}}{R}$. La intersección entre la curva de carga y la curva de salida se encuentra en la región en la que el BJT aactúacomo fuente de corriente, es decir en modo activo directo. Otra forma de ver esto es notando que $V_{CE}>V_{CESat}$. Para determinar un valor aproximado de $V_{CESat}$, se observa en la hoja de datos que para $I_C=100\,mA$ e $I_B=5\,mA$, el valor típico de $V_{CESat}$ es 200 mV. A su vez, en el modelo de LTSpice $h_{FE}=\beta=294.3$ (se toma de LTSpice y no de la hoja de datos porque en la hoja de datos hay 3 ganancias según el grupo o tipo del transistor, el cual desconocemos). $I_B=\frac{I_C}{\beta}=1.77\,\mu A$, es decir que la corriente $I_B$ del modelo simulado es todavía menor a $5\,mA$, y el $V_{CESat}$ es todavía menor a 200 mV, por lo que pedir $V_{CE}>V_{CESat}=200 mV$ para que el transistor esté en modo activo directo, asegura que dicha condición se cumpla en el caso modelado.
     \begin{figure}[H]
         \centering 
         \includegraphics[width=0.4\textwidth]{curvaSalidaBJT.png} 
         \caption{Curva de Salida del dispositivo BJT.} 
         \label{fig:curvaSalidaBJT}
     \end{figure}
-    Se puede observar que la curva pasa de saturación a MAD en $V_{CE}=0,15\,V$. El efecto Early es más notorio en el BJT que en el JFET, puesto que la pendiente del tramo horizontal de la curva de salida es mayor para el BJT.
-    
+    Por otro lado, en superposición con la curva de salida del BJT se puede apreciar la recta de carga determinada por $I_D=\frac{V_{DD}-V_{CE}}{R}$. La intersección entre la recta de carga y la curva de salida se encuentra en la región en la que el BJT actúa como fuente de corriente, es decir en Modo Activo Directo, lo cual es coherente con lo determinado previamente. Otra forma de ver esto es notando que $V_{CE}>V_{CESat}$. Para determinar un valor aproximado de $V_{CESat}$, se observa en la hoja de datos que para $I_C=100\,mA$ e $I_B=5\,mA$, el valor típico de $V_{CESat}$ es 200 mV. A su vez, en el modelo de LTSpice $h_{FE}=\beta=294.3$ (se toma de LTSpice y no de la hoja de datos porque en la hoja de datos hay 3 ganancias según el grupo o tipo de transistor BC546B, el cual desconocemos). $I_B=\frac{I_C}{\beta}=1.77\,\mu A$, es decir que la corriente $I_B$ del modelo simulado es todavía menor a $5\,mA$, y el $V_{CESat}$ es todavía menor a 200 mV, por lo que la corriente de saturación real va a ser todavía menor a $200\,mV$, y al ser una cota superior, pedir $V_{CE}>V_{CESat}=200 mV$ para que el transistor esté en Modo Activo Directo, asegura que dicha condición se cumpla en el caso modelado.
+    %Como comentario final, dada la distorsión de la curva por efecto Early, la tensión $V_{CE}$ tal que $V_{CB}=0\,V$ y para la cual el BJT entra en Modo Activo Directo no se puede extraer del gráfico, de manera que, analíticamente, se considera que $V_{BC}=V_{BE}-V_{CE}=0 \Rightarrow V_{BE}=V_{CE}$. Así, el valor umbral de $V_{CE}$ para el cual el transistor entra en Modo Activo Directo es $620\,mV$.
+
     \subsection{Parámetros del Modelo de Pequeña Señal}
-    Del modelo de LTSpice obtengo $\beta=294.3$ y $V_A=63.2\,V$. Para $V_T=26\,mV$,  obtengo:
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|c|c|c|c|} \hline
-        $g_m$     & $r_\pi$        & $r_o$           & $r_\mu$ \\   \hline
-        20.1 mA/V & 14.6 k$\Omega$ & 120.7 k$\Omega$ & 35.5 M$\Omega$ \\ \hline
-    \end{tabular}
-    \caption{Parámetros de pequeña señal del BJT.}
-    \label{tab:bjtPequenaSenal}
-    \end{table}
+    Del modelo de LTSpice se obtiene $\beta=294.3$ y $V_A=63.2\,V$. Para $V_T=26\,mV$,  obtengo:
+    $g_m=20.1\,mA/V$, $r_\pi=14.6\,k\Omega$, $r_o=120.7\,k\Omega$ y $r_\mu=35.5\,M\Omega$.
 
+    \begin{figure}[H]
+        \centering 
+        \includegraphics[width=0.4\textwidth]{pequenaSenal3.png} 
+        \caption{Simulación de Pequeña Señal: $V_{CE}$ vs $V_{BE}$.} 
+        \label{fig:pequenaSenal-Vce}
+    \end{figure}
 
+    \begin{figure}[H]
+        \centering 
+        \includegraphics[width=0.4\textwidth]{pequenaSenal4.png} 
+        \caption{Simulación de Pequeña Señal: $I_C$ vs $V_{BE}$.} 
+        \label{fig:pequenaSenal-Ic}
+    \end{figure}
+    Se puede observar en las figuras \ref{fig:pequenaSenal-Vce} y \ref{fig:pequenaSenal-Ic} que colocando una fuente sinusoidal con un offset de $620\,mV$ y una amplitud de $20\,mV$, empiezan a haber deformaciones en el análisis transitorio de la señal ideal, particularmente para los valores más altos que toma $I_C$ y los valores más bajos que toma $V_{CE}$. Esto no sucede para amplitudes menores a los $20\,mV$, y resulta aun más notorio para amplitudes mayores, por lo que se considera que este es el límite del modelo para la tensión de offset dado. Si en cambio se aumenta el offset, aumenta la amplitud para la cual la simulación comienza a tener un comportamiento no ideal. De esto se puede deducir que la limitación del modelo proviene de que para los valores pico de $V_{CE}$ e $I_C$, el transistor "sale" de la polarización en Modo Activo Directo y entra en otros modos. Al aumentar $V_{BE}$, aumenta $I_C$ y aumenta la caída de tensión en la resistencia, de manera que $V_{CE}$ baja y el transistor entra en saturación. Cuando $V_{BE}$ baja lo suficiente, $I_C$ disminuye y el transistor entra en corte.
 
 
 \section{MOSFET de Enriquecimiento (2N7000)}
@@ -98,20 +106,13 @@ Dado que la tensión de puerta es insuficiente para inducir la formación del ca
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{graficos_mosfet.pdf}
+    \includegraphics[width=0.4\textwidth]{graficos_mosfet.pdf}
     \caption{Curvas características del MOSFET 2N7000: curva de entrada (arriba) y curva de salida con recta de carga (abajo).}
     \label{fig:mosfet_graficos}
 \end{figure}
 
 \subsection{Parámetros de Pequeña Señal}
-En la región de corte, la pendiente de la curva de salida es nula, lo que implica que el dispositivo no presenta capacidad de amplificación ni respuesta ante variaciones de señal en este punto:
-\begin{itemize}
-    \item \textbf{Transconductancia ($g_m$):} $0$ mA/V. 
-    \item \textbf{Resistencia de salida ($r_o$):} Teóricamente infinita, el componente se comporta como un circuito abierto entre drenaje y fuente.
-\end{itemize}
-
-
-
+En la región de corte, la pendiente de la curva de salida es nula, lo que implica que el dispositivo no presenta capacidad de amplificación ni respuesta ante variaciones de señal en este punto. Se obtuvo una \textbf{Transconductancia ($g_m$)} de $0$ mA/V. Por otro lado, se obtuvo una \textbf{Resistencia de salida ($r_o$)} teóricamente infinita, puesto que el componente se comporta como un circuito abierto entre drenaje y fuente.
 
 
 
@@ -119,26 +120,14 @@ En la región de corte, la pendiente de la curva de salida es nula, lo que impli
 Se analizó el MOSFET de vaciamiento LND150h con una resistencia de carga $R_D = 8,5$ k$\Omega$ y $V_{DD} = 10$ V. La tensión de polarización se fijó en $V_{GS} = 0,3$ V.
 
 
-
-
 \subsection{Punto de Operación Q y Región de Trabajo}
 A partir del modelo SPICE proporcionado, se identifica una tensión de umbral $V_{to} = -1,4$ V y un parámetro $K_p = 3$ mA/V$^2$. Dado que $V_{GS} > V_{to}$ ($0,3 \text{ V} > -1,4 \text{ V}$), el dispositivo se encuentra en conducción.
 
-Utilizando la ecuación cuadrática ideal de saturación:
-\begin{equation}
-    I_D = \frac{K_p}{2} (V_{GS} - V_{to})^2 = \frac{3 \text{ mA/V}^2}{2} (0,3\text{V} - (-1,4\text{V}))^2 
-\end{equation}
+Utilizando la ecuación cuadrática ideal de saturación: $I_D = \frac{K_p}{2} (V_{GS} - V_{to})^2 = \frac{3 \text{ mA/V}^2}{2} (0,3\text{V} - (-1,4\text{V}))^2 $
 
-Obteniendo finalmente $\approx 4,33 \text{ mA}$. Sin embargo, al considerar la recta de carga:
-\begin{equation}
-    V_{DS} = V_{DD} - I_D \cdot R_D = 10\text{V} - (I_D \cdot 8,5\text{k}\Omega)
-\end{equation}
+Obteniendo finalmente $\approx 4,33 \text{ mA}$. Sin embargo, al considerar la recta de carga: $V_{DS} = V_{DD} - I_D \cdot R_D = 10\text{V} - (I_D \cdot 8,5\text{k}\Omega)$
 
- Si la corriente fuera de $4,33$ mA, $V_{DS}$ sería negativo, lo cual es físicamente imposible. Esta discrepancia demuestra que el elevado valor de la resistencia externa $R_D$ absorbe la mayor parte del tensión de la fuente, limitando la corriente máxima y forzando al dispositivo a operar en la \textbf{región óhmica o de triodo}. Por su parte, las resistencias parásitas e imperfecciones internas del modelo \texttt{VDMOS} en SPICE terminan de realizar el ajuste fino sobre el valor exacto de dicha corriente. Realizando la simulación (ver Fig. \ref{fig:mosfet_dep_graficos}), se obtuvo
-\begin{itemize}
-    \item $I_{D,Q} \approx 1,12$ mA
-    \item $V_{DS,Q} \approx 0,48$ V
-\end{itemize}
+ Si la corriente fuera de $4,33$ mA, $V_{DS}$ sería negativo, lo cual es físicamente imposible. Esta discrepancia demuestra que el elevado valor de la resistencia externa $R_D$ absorbe la mayor parte del tensión de la fuente, limitando la corriente máxima y forzando al dispositivo a operar en la \textbf{región óhmica o de triodo}. Por su parte, las resistencias parásitas e imperfecciones internas del modelo \texttt{VDMOS} en SPICE terminan de realizar el ajuste fino sobre el valor exacto de dicha corriente. Realizando la simulación (ver Fig. \ref{fig:mosfet_dep_graficos}), se obtuvo $I_{D,Q} \approx 1,12$ mA y $V_{DS,Q} \approx 0,48$ V.
 
 
 
@@ -152,7 +141,7 @@ En la región de triodo, los parámetros se definen por la pendiente de la curva
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.45\textwidth]{graficos_lnd150.pdf}
+    \includegraphics[width=0.4\textwidth]{graficos_lnd150.pdf}
     \caption{Curvas para el LND150h: entrada (arriba) y Salida (abajo). El punto Q se ubica en la región de triodo debido al alto valor de $R_D$.}
     \label{fig:mosfet_dep_graficos}
 \end{figure}
@@ -162,10 +151,19 @@ En la región de triodo, los parámetros se definen por la pendiente de la curva
 
 \subsection{Análisis Comparativo}
 Este resultado resulta llamativo al compararlo con el modelo de vaciamiento. Mientras que el LND150 conduce con $V_{GS}=0$V, el 2N7000 requiere una excitación significativamente mayor para salir del estado de reposo. En la hoja de datos, el rango de $V_{th}$ puede ser tan bajo como $0,8$ V; si se utilizara un componente físico con ese valor mínimo, el transistor estaría en conducción, lo que demuestra la alta sensibilidad del diseño al componente específico seleccionado.
-\par Por otro lado, se puede observar que la pendiente de la curva de salida del MOSFET de vaciamiento LND150H es prácticamente nula, es decir que la aproximación Early sobre este dispositivo es despreciable.
+\par Por otro lado, se puede observar que las pendientes de las curvas de salida tanto del MOSFET de vaciamiento LND150H como del MOSFET 2N7000 son prácticamente nulas, es decir que la aproximación Early sobre estos dispositivo es despreciable en los rangos de valores estudiados.
 
-        \section{Conclusiones} La inclusión del c
-        oeficiente de emisión en el cálculo de la resistencia dinámica permite un ajuste preciso con los resultados de simulación. Se verificó 
-        que el modelo de diodo ideal subestima significativamente la $r_d$ en regímenes de baja corriente, lo que afectaría la ganancia en un 
-        diseño de amplificación real. \begin{thebibliography}{00} \bibitem{b2} A. S. Sedra y K. C. Smith, \textit{Microelectronic Circuits}, 7ma ed. Oxford University 
+\section{Conclusiones} 
+En en análisis del diodo, la inclusión del coeficiente de emisión en el cálculo de la resistencia dinámica permite un ajuste preciso con los resultados de simulación. Se verificó que el modelo de diodo ideal subestima significativamente la $r_d$ en regímenes de baja corriente, lo que afectaría la ganancia en un diseño de amplificación real.
+Luego, a lo largo del análisis del transistor JFET, se encontró que el dispositivo presenta un comportamiento alineado con el ideal para todos los casos excepto para tensiones $V_{GS}$ cercanas a los $0\,V$, la cual a su vez es la región deseable de trabajo si se quiere utilizar al transistor en su máxima ganancia de corriente.
+Por otro lado, tras estudiar el comportamiento del transistor BJT, se recomienda estudiar cuidadosamente el efecto de la amplitud y el valor DC de $V_{BC}$ para asegurar la validez del modelo de pequeña señal según la aplicación.
+Finalmente, respecto a los dispositivos MOSFETs, se observó que, en ambos dispositivos, para los puntos de operación analizados, el efecto de modulación de longitud del canal (análogo al efecto Early en los BJT) resulta prácticamente despreciable, ya que las curvas de salida presentan una pendiente muy pequeña en la región de saturación.
+
+%Finalmente, respecto a los dispositivos MOSFETs, se concluyó que el punto de operación del MOSFET de enriquecimiento depende fuertemente del valor de $T_{TH}$, el cual presenta una dispersión considerable entre dispositivos, pudiendo modificar significativamente el comportamiento del circuito. En contraste, el MOSFET de vaciamiento resulta naturalmente conductor y requiere una polarización adecuada para reducir su corriente. Además, en ambos dispositivos se observó que, para los puntos de operación analizados, el efecto de modulación de longitud del canal (análogo al efecto Early en los BJT) resulta prácticamente despreciable, ya que las curvas de salida presentan una pendiente muy pequeña en la región de saturación.
+
+
+
+        
+
+\begin{thebibliography}{00} \bibitem{b2} A. S. Sedra y K. C. Smith, \textit{Microelectronic Circuits}, 7ma ed. Oxford University 
             Press, 2015, Cap. 4. \end{thebibliography} \end{document}

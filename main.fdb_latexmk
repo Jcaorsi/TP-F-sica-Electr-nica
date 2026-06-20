@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1781742472.73095 "c:/Users/ritam/OneDrive/Documentos/ITBA/2026-1C/Física Electrónica/TP-F-sica-Electr-nica/main.tex" "main.pdf" "main" 1781742475.09765 0
+["pdflatex"] 1781985287.73446 "c:/Users/ritam/OneDrive/Documentos/ITBA/2026-1C/Física Electrónica/TP-F-sica-Electr-nica/main.tex" "main.pdf" "main" 1781985289.2909 0
   "C:/Users/ritam/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1781742112 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/ritam/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1755436629 13257295 34bf6d9ec550cc1317f44bd43fcd6a60 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -37,8 +37,8 @@
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1247596667 36094 798f80770b3b148ceedd006d487db67c ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
+  "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247596667 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
-  "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
@@ -84,7 +84,7 @@
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1pcr.fd" 1585253778 1025 1ed784d7bfe47179f3550d2303b073f8 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/ritam/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/ritam/OneDrive/Documentos/ITBA/2026-1C/Física Electrónica/TP-F-sica-Electr-nica/main.tex" 1781742471 14417 33f92f4d8a59847c8f5cf2aeebae5a1a ""
+  "c:/Users/ritam/OneDrive/Documentos/ITBA/2026-1C/Física Electrónica/TP-F-sica-Electr-nica/main.tex" 1781985285 19252 42ecc86cfcdd941a717d5683a7875bd7 ""
   "curvaEntradaBJT.png" 1781733178 30056 63cb6091fccf2afaed3b8ebe4dc28c54 ""
   "curvaEntradaJFET.png" 1781723862 21482 4bd28a5055823015daa000de64355ebd ""
   "curvaSalidaBJT.png" 1781723862 22503 09f2f1fb4ff3ff2ec1770dce0f526265 ""
@@ -92,8 +92,10 @@
   "graficos.pdf" 1781723862 77851 aef247b21a286f378952ca13c3bf6980 ""
   "graficos_lnd150.pdf" 1781723862 86367 38328e5852ff237f355746e56dfadb47 ""
   "graficos_mosfet.pdf" 1781723862 76270 6cba19e31bb921e2d911c25066f91ee6 ""
-  "main.aux" 1781742474 3841 7a89624da01409ccd9de1dd526157704 "pdflatex"
-  "main.tex" 1781742471 14417 33f92f4d8a59847c8f5cf2aeebae5a1a ""
+  "main.aux" 1781985289 4064 4d24ca098946cee74d42b5db72f28c8e "pdflatex"
+  "main.tex" 1781985285 19252 42ecc86cfcdd941a717d5683a7875bd7 ""
+  "pequenaSenal3.png" 1781981254 78920 71717e7fdf75eac38b3fee114fe4835c ""
+  "pequenaSenal4.png" 1781981286 78330 772d7997e816c9d2baa86eb9fca42678 ""
   (generated)
   "main.aux"
   "main.log"

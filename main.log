@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.17)  17 JUN 2026 21:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.17)  20 JUN 2026 16:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -326,11 +326,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+
  (C:\Users\ritam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+
 
 (C:\Users\ritam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -338,10 +340,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <graficos.pdf, id=1, 382.83527pt x 240.19637pt>
 File: graficos.pdf Graphic file (type pdf)
 <use graficos.pdf>
-Package pdftex.def Info: graficos.pdf  used on input line 11.
+Package pdftex.def Info: graficos.pdf  used on input line 13.
 (pdftex.def)             Requested size: 258.0pt x 161.87997pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 11--11
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13--13
  [][] 
  []
 
@@ -350,13 +352,8 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 11--11
 <curvaEntradaJFET.png, id=2, 598.48593pt x 365.86688pt>
 File: curvaEntradaJFET.png Graphic file (type png)
 <use curvaEntradaJFET.png>
-Package pdftex.def Info: curvaEntradaJFET.png  used on input line 33.
+Package pdftex.def Info: curvaEntradaJFET.png  used on input line 35.
 (pdftex.def)             Requested size: 206.39685pt x 126.17397pt.
-<curvaSalidaJFET.png, id=4, 510.40688pt x 369.63094pt>
-File: curvaSalidaJFET.png Graphic file (type png)
-<use curvaSalidaJFET.png>
-Package pdftex.def Info: curvaSalidaJFET.png  used on input line 40.
-(pdftex.def)             Requested size: 206.39685pt x 149.47409pt.
 
 
 [1{C:/Users/ritam/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ri
@@ -364,44 +361,59 @@ tam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
  <./graficos.pdf> <./curvaEntradaJFET.png>]
+<curvaSalidaJFET.png, id=63, 510.40688pt x 369.63094pt>
+File: curvaSalidaJFET.png Graphic file (type png)
+<use curvaSalidaJFET.png>
+Package pdftex.def Info: curvaSalidaJFET.png  used on input line 43.
+(pdftex.def)             Requested size: 180.60315pt x 130.79407pt.
 <curvaEntradaBJT.png, id=64, 517.935pt x 369.38pt>
 File: curvaEntradaBJT.png Graphic file (type png)
 <use curvaEntradaBJT.png>
-Package pdftex.def Info: curvaEntradaBJT.png  used on input line 59.
+Package pdftex.def Info: curvaEntradaBJT.png  used on input line 62.
 (pdftex.def)             Requested size: 206.39685pt x 147.19702pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 <curvaSalidaBJT.png, id=65, 518.6878pt x 366.61969pt>
 File: curvaSalidaBJT.png Graphic file (type png)
 <use curvaSalidaBJT.png>
-Package pdftex.def Info: curvaSalidaBJT.png  used on input line 66.
+Package pdftex.def Info: curvaSalidaBJT.png  used on input line 68.
 (pdftex.def)             Requested size: 206.39685pt x 145.88446pt.
 
 
 [2 <./curvaSalidaJFET.png> <./curvaEntradaBJT.png> <./curvaSalidaBJT.png>]
-<graficos_mosfet.pdf, id=73, 304.37013pt x 436.19965pt>
+<pequenaSenal3.png, id=73, 593.71812pt x 292.09125pt>
+File: pequenaSenal3.png Graphic file (type png)
+<use pequenaSenal3.png>
+Package pdftex.def Info: pequenaSenal3.png  used on input line 81.
+(pdftex.def)             Requested size: 206.39685pt x 101.54263pt.
+<pequenaSenal4.png, id=74, 593.71812pt x 289.58188pt>
+File: pequenaSenal4.png Graphic file (type png)
+<use pequenaSenal4.png>
+Package pdftex.def Info: pequenaSenal4.png  used on input line 88.
+(pdftex.def)             Requested size: 206.39685pt x 100.67027pt.
+
+
+<graficos_mosfet.pdf, id=75, 304.37013pt x 436.19965pt>
 File: graficos_mosfet.pdf Graphic file (type pdf)
 <use graficos_mosfet.pdf>
-Package pdftex.def Info: graficos_mosfet.pdf  used on input line 101.
-(pdftex.def)             Requested size: 232.19843pt x 332.77313pt.
+Package pdftex.def Info: graficos_mosfet.pdf  used on input line 109.
+(pdftex.def)             Requested size: 206.39685pt x 295.79982pt.
+
+
+[3 <./pequenaSenal3.png> <./pequenaSenal4.png> <./graficos_mosfet.pdf>]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-37.
+30.
 
 (C:\Users\ritam\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-
-<graficos_lnd150.pdf, id=74, 304.36911pt x 436.19864pt>
+<graficos_lnd150.pdf, id=119, 304.36911pt x 436.19864pt>
 File: graficos_lnd150.pdf Graphic file (type pdf)
 <use graficos_lnd150.pdf>
-Package pdftex.def Info: graficos_lnd150.pdf  used on input line 155.
-(pdftex.def)             Requested size: 232.19843pt x 332.77235pt.
+Package pdftex.def Info: graficos_lnd150.pdf  used on input line 144.
+(pdftex.def)             Requested size: 206.39685pt x 295.79913pt.
 
 
-[3 <./graficos_mosfet.pdf>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -415,24 +427,20 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[4
-
- <./graficos_lnd150.pdf>] (main.aux)
+[4 <./graficos_lnd150.pdf>] (main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4634 strings out of 468134
- 73220 string characters out of 5430740
- 494677 words of memory out of 5000000
- 33201 multiletter control sequences out of 15000+600000
- 664337 words of font info for 113 fonts, out of 8000000 for 9000
+ 4642 strings out of 468134
+ 73427 string characters out of 5430740
+ 490700 words of memory out of 5000000
+ 33209 multiletter control sequences out of 15000+600000
+ 663691 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,10n,65p,1235b,261s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,65p,1490b,261s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx9.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -443,9 +451,9 @@ ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ritam/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ritam/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/r
 itam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
-/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
+/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.
 pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+m/cmr7.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmr9.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ritam/AppData/Local/Programs/MiKTe
@@ -454,9 +462,9 @@ TeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/ritam/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/ritam/AppData/Local/Programs/Mi
 KTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/ritam/AppData/Local/Programs/Mi
 KTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 367047 bytes).
+Output written on main.pdf (4 pages, 522211 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
+ 217 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
