@@ -2,7 +2,8 @@
 \usepackage[numbers]{natbib} \usepackage{amsmath,amssymb,amsfonts} \usepackage{algorithmic} \usepackage{graphicx} \usepackage{textcomp} \usepackage{xcolor} \usepackage[utf8]{inputenc}\usepackage{float}
  \begin{document} \title{Análisis de Componentes Modelados en LTSpice}
   \author{ \IEEEauthorblockN{Juan Ignacio Caorsi (65532) y Rita Moschini (67026)} \IEEEauthorblockA{Grupo 3} } \maketitle \begin{abstract} 
-    En este trabajo se realiza una comparación de los modelos teóricos de componentes mediante simulaciones con LTSpice, analizando el impacto de parámetros no ideales como el coeficiente de emisión en el punto de operación y la caracterización de pequeña señal.
+    En este trabajo se realiza una comparación de los modelos teóricos de componentes mediante simulaciones con LTSpice,
+     analizando el impacto de parámetros no ideales como el coeficiente de emisión en el punto de operación y la caracterización de pequeña señal.
  \end{abstract} \begin{IEEEkeywords} diodo, JFET, BJT, MOSFET, recta de carga.
 \end{IEEEkeywords}
 
@@ -48,12 +49,12 @@ Se estudiará un dispositivo JFET con fuentes de tensión $V_{GS} = -1 V$ y $V_{
 
     
     \subsection{Parámetros del Modelo de Pequeña Señal}
-    Se obtuvo un valor de transconductancia de $g_m=4,44\,mA$. Luego, para calcular la conductancia de salida se calculó la tensión de early $V_A$ a partir del valor de $\lambda=2.25m$ de la simulación, de manera que $V_A=\frac{1}{\lambda}=444,44\,V$. Esto es coherente con lo observable en la curva de salida, puesto que una gran tensión de early implica una pequeña pendiente en la zona de saturación de la misma. Así, la resistencia de salida resulta ser $r_0=\frac{V_A}{I_D}=83.86k\,\Omega$ y la conductancia de salida $g_d=\frac{I_D}{V_A}=11.92\,\mu\frac{1}{\Omega}$.
+    Se obtuvo un valor de transconductancia de $g_m=4,44\,mA/V$. Luego, para calcular la conductancia de salida se calculó la tensión de early $V_A$ a partir del valor de $\lambda=2.25m$ de la simulación, de manera que $V_A=\frac{1}{\lambda}=444,44\,V$. Esto es coherente con lo observable en la curva de salida, puesto que una gran tensión de early implica una pequeña pendiente en la zona de saturación de la misma. Así, la resistencia de salida resulta ser $r_0=\frac{V_A}{I_D}=83.86k\,\Omega$ y la conductancia de salida $g_d=\frac{I_D}{V_A}=11.92\,\mu\frac{1}{\Omega}$.
 
 \section{Análisis del dispositivo BJT (BC546B )}
     Se estudiará un dispositivo BJT con fuentes de tensión $V_{BE} = 620\,mV$ y $V_{DD}= 10 V$ y una carga de R = 10 k$ \Omega$.
 
-    El punto de operación Q en la curva de entrada del BJT (figura \ref{fig:curvaEntradaBJT}) se encuentra determinado por la fuente de tensión $V_{GS}=620\,mV$ colocada. La simulación mostró que en este punto, $I_D=523.6\,\mu A$. 
+    El punto de operación Q en la curva de entrada del BJT (figura \ref{fig:curvaEntradaBJT}) se encuentra determinado por la fuente de tensión $V_{BE}=620\,mV$ colocada. La simulación mostró que en este punto, $I_C=523.6\,\mu A$. 
     
     Con el fin de determinar de forma analítica la polarización del dispositivo, se busca conocer los valores de las tensiones en las junturas, es decir $V_{BE}$ y $V_{BC}$. Así, se obtiene $V_{CE}=V_{DD}-I_C\cdot R =10\,V-(523.6\,\mu A)(10\,k\Omega)=4.8\,V $, es decir que $V_{CE}=4.8\,V $. Luego, se utiliza este dato para calcular $V_{BC}=V_{BE}-V_{CE}=620\,mV-4.8V$, de lo cual se obtiene que $V_{BC}=-4.18\,V$.
     Así, dado que $V_{BC}<0$ y $V_{BE}>0$, se obtuvo analíticamente que el transistor opera en Modo Activo Directo.
@@ -69,7 +70,7 @@ Se estudiará un dispositivo JFET con fuentes de tensión $V_{GS} = -1 V$ y $V_{
         \caption{Curva de Salida del dispositivo BJT.} 
         \label{fig:curvaSalidaBJT}
     \end{figure}
-    Por otro lado, en superposición con la curva de salida del BJT se puede apreciar la recta de carga determinada por $I_D=\frac{V_{DD}-V_{CE}}{R}$. La intersección entre la recta de carga y la curva de salida se encuentra en la región en la que el BJT actúa como fuente de corriente, es decir en Modo Activo Directo, lo cual es coherente con lo determinado previamente. Otra forma de ver esto es notando que $V_{CE}>V_{CESat}$. Para determinar un valor aproximado de $V_{CESat}$, se observa en la hoja de datos que para $I_C=100\,mA$ e $I_B=5\,mA$, el valor típico de $V_{CESat}$ es 200 mV. A su vez, en el modelo de LTSpice $h_{FE}=\beta=294.3$ (se toma de LTSpice y no de la hoja de datos porque en la hoja de datos hay 3 ganancias según el grupo o tipo de transistor BC546B, el cual desconocemos). $I_B=\frac{I_C}{\beta}=1.77\,\mu A$, es decir que la corriente $I_B$ del modelo simulado es todavía menor a $5\,mA$, y el $V_{CESat}$ es todavía menor a 200 mV, por lo que la corriente de saturación real va a ser todavía menor a $200\,mV$, y al ser una cota superior, pedir $V_{CE}>V_{CESat}=200 mV$ para que el transistor esté en Modo Activo Directo, asegura que dicha condición se cumpla en el caso modelado.
+    Por otro lado, en superposición con la curva de salida del BJT se puede apreciar la recta de carga determinada por $I_C=\frac{V_{DD}-V_{CE}}{R}$. La intersección entre la recta de carga y la curva de salida se encuentra en la región en la que el BJT actúa como fuente de corriente, es decir en Modo Activo Directo, lo cual es coherente con lo determinado previamente. Otra forma de ver esto es notando que $V_{CE}>V_{CESat}$. Para determinar un valor aproximado de $V_{CESat}$, se observa en la hoja de datos que para $I_C=100\,mA$ e $I_B=5\,mA$, el valor típico de $V_{CESat}$ es 200 mV. A su vez, en el modelo de LTSpice $h_{FE}=\beta=294.3$ (se toma de LTSpice y no de la hoja de datos porque en la hoja de datos hay 3 ganancias según el grupo o tipo de transistor BC546B, el cual desconocemos). $I_B=\frac{I_C}{\beta}=1.77\,\mu A$, es decir que la corriente $I_B$ del modelo simulado es todavía menor a $5\,mA$, y el $V_{CESat}$ es todavía menor a 200 mV, por lo que la corriente de saturación real va a ser todavía menor a $200\,mA$, y al ser una cota superior, pedir $V_{CE}>V_{CESat}=200 mV$ para que el transistor esté en Modo Activo Directo, asegura que dicha condición se cumpla en el caso modelado.
     %Como comentario final, dada la distorsión de la curva por efecto Early, la tensión $V_{CE}$ tal que $V_{CB}=0\,V$ y para la cual el BJT entra en Modo Activo Directo no se puede extraer del gráfico, de manera que, analíticamente, se considera que $V_{BC}=V_{BE}-V_{CE}=0 \Rightarrow V_{BE}=V_{CE}$. Así, el valor umbral de $V_{CE}$ para el cual el transistor entra en Modo Activo Directo es $620\,mV$.
 
     \subsection{Parámetros del Modelo de Pequeña Señal}
